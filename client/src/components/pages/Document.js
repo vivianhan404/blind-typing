@@ -1,4 +1,5 @@
 import React from "react";
+import DocText from "./DocText";
 
 /**
  * @typedef PageObject
@@ -17,7 +18,7 @@ const Document = (props) => {
     return (
         <div>
             <div>{props.data.prompt}</div>
-            <div>{props.data.content}</div>
+            <DocText content={props.data.content} />
         </div>
     )
 }
