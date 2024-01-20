@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { TextInput } from "../modules/TextInput";
+import { DocText } from "../modules/TextInput";
 // import DocText from "../modules/DocText2";
 
 /**
@@ -27,7 +27,7 @@ const Document = (props) => {
     return (
         <div>
             <div>{dataObj.prompt}</div>
-            <TextInput content={content} setContent={setContent} />
+            <DocText content={content} setContent={setContent} />
             <Link to="/prompt">back to prompt</Link>
         </div>
     )

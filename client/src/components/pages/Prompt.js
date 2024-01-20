@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import {useNavigate} from "react-router-dom";
 
-import { TextInput } from "../modules/TextInput";
+// import { PromptText } from "../modules/PromptText";
+import {PromptText} from "../modules/TextInput";
 import "./Prompt.css";
 
 /**
@@ -29,7 +30,7 @@ const Prompt = (props) => {
     return (
         <div>
             <div className="Prompt-promptText">{props.prompt}</div>
-            <TextInput content={content} setContent={setContent} textStyle="TextInput-prompt"/>
+            <PromptText content={content} setContent={setContent}/>
             <button onClick={handleClick}>Show text</button>
         </div>
     )

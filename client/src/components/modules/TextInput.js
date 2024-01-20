@@ -7,9 +7,10 @@ import "./TextInput.css";
  * New Post is a parent component for all input components
  *
  * Proptypes
+ * @param {boolean} autoFocus
  * @param {string} defaultText is the placeholder text
- * @param {string} content is the current value of the text box
- * @param {({value} => void)} setContent is the setter for value
+ * @param {string} value is the current value of the text box
+ * @param {({value} => void)} setValue is the setter for value
  * @param {string} textStyle is the css class for the style of the text box
 //  * param {({storyId, value}) => void} onChange: (function) triggered when this input is changed, takes {storyId, value} as parameters
 //  * param {({storyId, value}) => void} onSubmit: (function) triggered when this post is submitted, takes {storyId, value} as parameters
@@ -19,7 +20,7 @@ const TextInput = (props) => {
   const handleChange = (event) => {
     console.log("change! " + event.target.value);
     // console.log(props.textStyle);
-    props.setContent(event.target.value);
+    props.setValue(event.target.value);
     // props.onChange && props.onChange(value);
   };
 
@@ -33,9 +34,10 @@ const TextInput = (props) => {
   return (
     <div>
       <input
+        autoFocus={props.autoFocus}
         type="text"
         placeholder={props.defaultText}
-        value={props.content}
+        value={props.value}
         onChange={handleChange}
         className={props.textStyle}
       />
@@ -50,27 +52,32 @@ const TextInput = (props) => {
   );
 };
 
-// /**
-//  * Document Text is a Document component for text
-//  *
-//  * Proptypes
-//  * @param {string} content is the placeholder text
-//  * @param {({value} => void)} setContent is the setter for value
-//  */
-// const DocText = (props) => {
-//   return <TextInput defaultText="I feel..." value={props.content} setValue={props.setContent} />;
-// };
+/**
+ * Document Text is a Document component for text
+ *
+ * Proptypes
+ * @param {string} content is the placeholder text
+ * @param {({value} => void)} setContent is the setter for value
+ */
+const DocText = (props) => {
+  return <TextInput defaultText="I feel..." value={props.content} setValue={props.setContent} />;
+};
 
-// /**
-//  * Prompt Text is a Prompt component for text input
-//  *
-//  * Proptypes
-//  * @param {string} content is the placeholder text
-//  * @param {({value} => void)} setContent is the setter for value
-//  */
-// const PromptText = (props) => {
-//   return <TextInput value={props.content} setValue={props.setContent} inType="hidden"/>;
-// };
+/**
+ * Prompt Text is a Prompt component for text input
+ *
+ * Proptypes
+ * @param {string} content is the placeholder text
+ * @param {({value} => void)} setContent is the setter for value
+ */
+const PromptText = (props) => {
+  return <TextInput 
+    autoFocus={true} 
+    value={props.content} 
+    setValue={props.setContent}
+    textStyle="TextInput-prompt"
+  />;
+};
 
 
 /**
@@ -92,4 +99,4 @@ const NewComment = (props) => {
   return <TextInput defaultText="New Comment" onSubmit={addComment} />;
 };
 
-export { TextInput};
+export { DocText, PromptText, TextInput};
