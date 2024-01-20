@@ -3,8 +3,11 @@ import { Routes, Route } from "react-router-dom";
 
 import jwt_decode from "jwt-decode";
 
+// pages: 
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
+import Document from "./pages/Document.js";
+import Prompt from "./pages/Prompt.js";
 
 import "../utilities.css";
 
@@ -15,6 +18,13 @@ import { get, post } from "../utilities";
 /**
  * Define the "App" component
  */
+
+const TEST_PROMPT = "~~ How are you doing? ~~"
+const TEST_PAGE_DATA = {
+  prompt: TEST_PROMPT,
+  content: "orz",
+};
+
 const App = () => {
   const [userId, setUserId] = useState(undefined);
 
@@ -52,6 +62,24 @@ const App = () => {
             handleLogin={handleLogin}
             handleLogout={handleLogout}
             userId={userId}
+          />
+        }
+      />
+      <Route 
+        path="/prompt"
+        element={
+          <Prompt 
+            path="/prompt"
+            prompt={TEST_PROMPT}
+          />
+        }
+      />
+      <Route
+        path="/text"
+        element={
+          <Document
+            path="/text"
+            data={TEST_PAGE_DATA}
           />
         }
       />
