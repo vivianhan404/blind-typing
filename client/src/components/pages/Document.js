@@ -1,5 +1,6 @@
 import React from "react";
-import DocText from "./DocText";
+import { useLocation } from "react-router-dom";
+import DocText from "../modules/DocText";
 
 /**
  * @typedef PageObject
@@ -15,10 +16,12 @@ import DocText from "./DocText";
  */
 
 const Document = (props) => {
+    const dataObj = useLocation().state;
+
     return (
         <div>
-            <div>{props.data.prompt}</div>
-            <DocText content={props.data.content} />
+            <div>{dataObj.prompt}</div>
+            <DocText content={dataObj.content} />
         </div>
     )
 }
