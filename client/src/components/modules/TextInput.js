@@ -18,7 +18,7 @@ import "./TextInput.css";
 const TextInput = (props) => {
   // called whenever the user types in the new post input box
   const handleChange = (event) => {
-    console.log("change! " + event.target.value);
+    // console.log("change! " + event.target.value);
     // console.log(props.textStyle);
     props.setValue(event.target.value);
     // props.onChange && props.onChange(value);

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 import jwt_decode from "jwt-decode";
 
@@ -8,12 +8,15 @@ import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 import Document from "./pages/Document.js";
 import Prompt from "./pages/Prompt.js";
+import Login from "./pages/Login.js"
+import Journal from "./pages/Journal.js"
 
 import "../utilities.css";
 
 import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
+import NavBar from "./modules/NavBar.js";
 
 /**
  * Define the "App" component
@@ -27,6 +30,7 @@ const TEST_PAGE_DATA = {
 
 const App = () => {
   const [userId, setUserId] = useState(undefined);
+  const navigate = useNavigate();
 
   useEffect(() => {
     get("/api/whoami").then((user) => {
@@ -45,46 +49,69 @@ const App = () => {
       setUserId(user._id);
       post("/api/initsocket", { socketid: socket.id });
     });
+    navigate("/journal");
   };
 
   const handleLogout = () => {
     setUserId(undefined);
     post("/api/logout");
+    navigate("/login");
   };
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <Skeleton
-            path="/"
-            handleLogin={handleLogin}
-            handleLogout={handleLogout}
-            userId={userId}
-          />
-        }
-      />
-      <Route 
-        path="/prompt"
-        element={
-          <Prompt 
-            path="/prompt"
-            prompt={TEST_PROMPT}
-          />
-        }
-      />
-      <Route
-        path="/text"
-        element={
-          <Document
-            path="/text"
-            data={TEST_PAGE_DATA}
-          />
-        }
-      />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <>
+      <NavBar handleLogout={handleLogout} />
+      <Routes>
+        <Route
+          path="/login"
+          element={
+            <Login
+              path="/login"
+              handleLogin={handleLogin}
+              handleLogout={handleLogout}
+              userId={userId}
+            />
+          }
+        />
+        <Route 
+          path="/journal"
+          element={
+            <Journal 
+              path="/journal"
+            />
+          }
+        />
+        <Route 
+          path="/prompt"
+          element={
+            <Prompt 
+              path="/prompt"
+              prompt={TEST_PROMPT}
+            />
+          }
+        />
+        <Route
+          path="/text"
+          element={
+            <Document
+              path="/text"
+            />
+          }
+        />
+        <Route
+          path="/todo"
+          element={
+            <Skeleton
+              path="/todo"
+              handleLogin={handleLogin}
+              handleLogout={handleLogout}
+              userId={userId}
+            />
+          }
+        />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   );
 };
 

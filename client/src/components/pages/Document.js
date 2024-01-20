@@ -1,22 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { DocText } from "../modules/TextInput";
-// import DocText from "../modules/DocText2";
 
-/**
- * @typedef PageObject
- * @property {string} prompt is the prompt for this page
- * @property {string} content is the body text for this journal entry
- */
-
-/**
- * Text is the page with the body text
- *
- * Proptypes
- * @param {PageObject} data the data for this journal entry
- */
-
-const Document = (props) => {
+const Document = () => {
+    const navigate = useNavigate();
     const dataObj = useLocation().state;
     const [content, setContent] = useState("");
 
@@ -24,11 +11,16 @@ const Document = (props) => {
         setContent(dataObj.content);
     }, []);
 
+    const makeHandleClick = (to) => {
+        return (() => {navigate(to);});
+    }
+
     return (
         <div>
             <div>{dataObj.prompt}</div>
             <DocText content={content} setContent={setContent} />
-            <Link to="/prompt">back to prompt</Link>
+            <button onClick={makeHandleClick("/prompt")}>back to prompt</button>
+            <button onClick={makeHandleClick("/journal")}>back to journal</button>
         </div>
     )
 }
