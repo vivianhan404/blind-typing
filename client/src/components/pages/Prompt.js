@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import {useNavigate} from "react-router-dom";
+
+import { TextInput } from "../modules/TextInput";
+import "./Prompt.css";
 
 /**
  * Prompt is the 'prompt only' page
@@ -12,11 +15,12 @@ const TEST_CONTENT = "~~ orz ~~"
 
 const Prompt = (props) => {
     const navigate = useNavigate();
+    const [content, setContent] = useState("");
 
     const handleClick = () => {
         const docObj = {
             prompt: props.prompt,
-            content: TEST_CONTENT,
+            content: content,
         };
         console.log(docObj);
         navigate("/text", {state: docObj});
@@ -24,7 +28,8 @@ const Prompt = (props) => {
 
     return (
         <div>
-            <div>{props.prompt}</div>
+            <div className="Prompt-promptText">{props.prompt}</div>
+            <TextInput content={content} setContent={setContent} textStyle="TextInput-prompt"/>
             <button onClick={handleClick}>Show text</button>
         </div>
     )

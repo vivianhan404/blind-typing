@@ -1,6 +1,7 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
-import DocText from "../modules/DocText";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { TextInput } from "../modules/TextInput";
+// import DocText from "../modules/DocText2";
 
 /**
  * @typedef PageObject
@@ -17,11 +18,17 @@ import DocText from "../modules/DocText";
 
 const Document = (props) => {
     const dataObj = useLocation().state;
+    const [content, setContent] = useState("");
+
+    useEffect(() => {
+        setContent(dataObj.content);
+    }, []);
 
     return (
         <div>
             <div>{dataObj.prompt}</div>
-            <DocText content={dataObj.content} />
+            <TextInput content={content} setContent={setContent} />
+            <Link to="/prompt">back to prompt</Link>
         </div>
     )
 }
