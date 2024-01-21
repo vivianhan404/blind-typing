@@ -3,4 +3,22 @@
   width: 100vw;
   height: 100vh;
   background-color: #deadbf;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.Test-header {
+  width: 100%;
+  max-height: 120px;
+  background-color: #fff;
+  padding: var(--m);
+}
+
+.Test-body {
+  width: 100%;
+  background-color: grey;
+  flex-grow: 1;
+  border: 3pt solid darkblue;
+  box-sizing: border-box;
 }
