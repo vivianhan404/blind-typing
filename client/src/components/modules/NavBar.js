@@ -12,7 +12,7 @@ import "./NavBar.css";
  */
 
 const TEST_CONTENT = "~~ orz ~~";
-const NO_NAVBAR = ["/prompt", "/login"];
+const NO_NAVBAR = ["/prompt", "/login", "/deadbeef"];
 
 const NavBar = (props) => {
   const location = useLocation();

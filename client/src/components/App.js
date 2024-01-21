@@ -10,6 +10,7 @@ import Document from "./pages/Document.js";
 import Prompt from "./pages/Prompt.js";
 import Login from "./pages/Login.js";
 import Journal from "./pages/Journal.js";
+import Test from "./pages/Test.js";
 
 import "../utilities.css";
 
@@ -76,6 +77,7 @@ const App = () => {
         <Route path="/journal" element={<Journal path="/journal" />} />
         <Route path="/prompt" element={<Prompt path="/prompt" prompt={TEST_PROMPT} />} />
         <Route path="/text" element={<Document path="/text" />} />
+        <Route path="/deadbeef" element={<Test path="/deadbeef" />} />
         <Route
           path="/todo"
           element={
