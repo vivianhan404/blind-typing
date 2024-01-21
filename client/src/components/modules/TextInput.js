@@ -32,23 +32,14 @@ const TextInput = (props) => {
   //   };
 
   return (
-    <div>
-      <textarea
-        autoFocus={props.autoFocus}
-        type="text"
-        placeholder={props.defaultText}
-        value={props.value}
-        onChange={handleChange}
-        className={props.textStyle}
-      />
-      {/* <button
-        type="submit"
-        value="Submit"
-        onClick={handleSubmit}
-      >
-        Submit
-      </button> */}
-    </div>
+    <textarea
+      autoFocus={props.autoFocus}
+      type="text"
+      placeholder={props.defaultText}
+      value={props.value}
+      onChange={handleChange}
+      className={props.textStyle}
+    />
   );
 };
 

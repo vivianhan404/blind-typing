@@ -1,43 +1,72 @@
-.Doc-background {
-  position: fixed;
-  padding: 0;
-  margin: 0;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--cream);
-}
-
 .Doc-headerContainer {
   width: 100%;
-  display: flex;
-  position: fixed;
-  max-height: 120px;
-  padding: var(--m);
-  margin: 0;
-  top: 0;
+  max-height: 160px;
   background-color: var(--main-blue);
+  display: flex;
 }
 
-.Doc-headerText {
-  width: 80%;
-  text-align: center;
-  color: var(--cream);
-  font-family: "Source Serif 4", serif;
-  font-weight: 600;
-  font-size: 16pt;
-  text-wrap: pretty;
-  overflow-y: scroll;
+.Doc-backButtonContainter {
+  flex-basis: 20%;
 }
 
 .Doc-backButton {
   font-size: 16px;
   color: var(--cream);
   border-color: var(--cream);
-  padding: var(--s);
   background-color: var(--main-blue);
-  align-self: start;
+  padding: var(--s);
+
+  margin: var(--m);
+  justify-self: center;
+}
+
+.Doc-promptContainer {
+  flex-basis: 60%;
+  display: flex;
+  justify-content: center;
+}
+
+.Doc-promptText::-webkit-scrollbar {
+  display: none;
+}
+
+.Doc-promptText {
+  color: var(--cream);
+  font-family: "Source Serif 4", serif;
+  font-weight: 600;
+  font-size: 16pt;
+  text-align: center;
+
+  text-wrap: pretty;
+  overflow-y: scroll;
+
+  margin: var(--m);
+  width: 60%;
+}
+
+.Doc-bodyContainer {
+  width: 100%;
+  background-color: var(--cream);
+  flex-grow: 1;
+
+  display: flex;
+  justify-content: center;
+}
+
+.Doc-textContainer {
+  margin-top: var(--m);
+  margin-bottom: var(--m);
+  flex-basis: 80%;
+}
+
+.Doc-sidebarContainer {
+  flex-basis: 10%;
+}
+
+.Doc-sidebarRightContainer {
+  display: flex;
+  justify-content: center;
+  align-content: flex-end;
 }
 
 .Doc-pageButton {
@@ -47,16 +76,15 @@
   padding: var(--s);
   background-color: var(--light-brown);
 
-  position: fixed;
-  right: 40px;
-  bottom: 40px;
+  margin: var(--m);
+  align-self: flex-end;
   z-index: 1;
 }
 
-.Doc-textContainer {
-  width: 100%;
-  position: relative;
-  top: 120px;
-  height: 100%;
-  background-color: red;
+.Doc-background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

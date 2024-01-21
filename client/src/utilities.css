@@ -1,5 +1,4 @@
 /**
-* Welcome to your ✨𝔲𝔱𝔦𝔩𝔦𝔱𝔶 𝔰𝔱𝔶𝔩𝔢𝔰✨!
 * This file includes utility classes that are super simple
 * and can be used to add general styles; variable definitions
 * for colors; and styles to html, body, and other high level
@@ -15,20 +14,20 @@
 */
 
 /* TODO: REPLACE WITH YOUR OWN FONT! */
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,600;1,8..60,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,600;1,8..60,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,600;1,8..60,700&display=swap');
 
 :root {
-  --cream: #FAF6F1;
-  --cream-dl: #B1ACA8;
-  --dark-grey: #4E4E4E;
-  --dark-blue: #0C3D5B;
-  --main-blue: #5C8499;
-  --light-blue: #A6C2CE;
-  --pale-blue: #BDD0D8;
-  --dark-brown: #8A481D;
-  --red-brown: #B87141;
-  --light-brown: #D2A687;
+  --cream: #faf6f1;
+  --cream-dl: #b1aca8;
+  --dark-grey: #4e4e4e;
+  --dark-blue: #0c3d5b;
+  --main-blue: #5c8499;
+  --light-blue: #a6c2ce;
+  --pale-blue: #bdd0d8;
+  --dark-brown: #8a481d;
+  --red-brown: #b87141;
+  --light-brown: #d2a687;
 
   --xs: 4px;
   --s: 8px;
@@ -39,18 +38,17 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  background-color: var(--light-blue);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
 }
 
 h1 {
-  font-family: 'Source Serif 4', serif;
+  font-family: "Source Serif 4", serif;
   font-weight: 700;
 }
 
 h2 {
-  font-family: 'Source Serif 4', serif;
+  font-family: "Source Serif 4", serif;
   font-weight: 600;
 }
 
