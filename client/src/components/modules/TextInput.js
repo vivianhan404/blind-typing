@@ -24,12 +24,12 @@ const TextInput = (props) => {
     // props.onChange && props.onChange(value);
   };
 
-//   // called when the user hits "Submit" for a new post
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     props.onSubmit && props.onSubmit(value);
-//     setValue("");
-//   };
+  //   // called when the user hits "Submit" for a new post
+  //   const handleSubmit = (event) => {
+  //     event.preventDefault();
+  //     props.onSubmit && props.onSubmit(value);
+  //     setValue("");
+  //   };
 
   return (
     <div>
@@ -60,7 +60,14 @@ const TextInput = (props) => {
  * @param {({value} => void)} setContent is the setter for value
  */
 const DocText = (props) => {
-  return <TextInput defaultText="I feel..." value={props.content} setValue={props.setContent} />;
+  return (
+    <TextInput
+      textStyle="TextInput-document"
+      defaultText="I feel..."
+      value={props.content}
+      setValue={props.setContent}
+    />
+  );
 };
 
 /**
@@ -71,14 +78,15 @@ const DocText = (props) => {
  * @param {({value} => void)} setContent is the setter for value
  */
 const PromptText = (props) => {
-  return <TextInput 
-    autoFocus={true} 
-    value={props.content} 
-    setValue={props.setContent}
-    textStyle="TextInput-prompt"
-  />;
+  return (
+    <TextInput
+      autoFocus={true}
+      value={props.content}
+      setValue={props.setContent}
+      textStyle="TextInput-prompt"
+    />
+  );
 };
-
 
 /**
  * New Comment is a New Post component for comments
@@ -99,4 +107,4 @@ const NewComment = (props) => {
   return <TextInput defaultText="New Comment" onSubmit={addComment} />;
 };
 
-export { DocText, PromptText, TextInput};
+export { DocText, PromptText, TextInput };

@@ -3,13 +3,13 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 
 import jwt_decode from "jwt-decode";
 
-// pages: 
+// pages:
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 import Document from "./pages/Document.js";
 import Prompt from "./pages/Prompt.js";
-import Login from "./pages/Login.js"
-import Journal from "./pages/Journal.js"
+import Login from "./pages/Login.js";
+import Journal from "./pages/Journal.js";
 
 import "../utilities.css";
 
@@ -22,7 +22,7 @@ import NavBar from "./modules/NavBar.js";
  * Define the "App" component
  */
 
-const TEST_PROMPT = "~~ How are you doing? ~~"
+const TEST_PROMPT = "~~ How was your day ~~";
 const TEST_PAGE_DATA = {
   prompt: TEST_PROMPT,
   content: "orz",
@@ -73,31 +73,9 @@ const App = () => {
             />
           }
         />
-        <Route 
-          path="/journal"
-          element={
-            <Journal 
-              path="/journal"
-            />
-          }
-        />
-        <Route 
-          path="/prompt"
-          element={
-            <Prompt 
-              path="/prompt"
-              prompt={TEST_PROMPT}
-            />
-          }
-        />
-        <Route
-          path="/text"
-          element={
-            <Document
-              path="/text"
-            />
-          }
-        />
+        <Route path="/journal" element={<Journal path="/journal" />} />
+        <Route path="/prompt" element={<Prompt path="/prompt" prompt={TEST_PROMPT} />} />
+        <Route path="/text" element={<Document path="/text" />} />
         <Route
           path="/todo"
           element={

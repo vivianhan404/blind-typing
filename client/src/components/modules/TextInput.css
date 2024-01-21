@@ -4,3 +4,13 @@
     border: 0px;
     background-color: var(--main-blue);
 }
+
+.TextInput-document {
+    width: 80%;
+    outline: none;
+    border: none;
+    color: var(--dark-grey);
+    background-color: var(--cream);
+    overflow-wrap: normal;
+    
+}
