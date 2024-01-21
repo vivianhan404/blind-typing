@@ -28,10 +28,10 @@ const Prompt = (props) => {
     }
 
     return (
-        <div>
-            <div className="Prompt-promptText">{props.prompt}</div>
+        <div className="Prompt-container">
+            <h1 className="Prompt-promptText">{props.prompt}</h1>
             <PromptText content={content} setContent={setContent}/>
-            <button onClick={handleClick}>Show text</button>
+            <button className="Prompt-revealButton" onClick={handleClick}>Show text</button>
         </div>
     )
 }
