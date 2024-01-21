@@ -1,0 +1,16 @@
+.NavBar-container {
+  margin-left: auto;
+  margin-right: 40px;
+  width: 200px;
+  background-color: var(--dark-brown);
+  display: flex;
+  justify-content: center;
+}
+
+.NavBar-button {
+  border: none;
+  background-color: var(--dark-brown);
+  color: var(--cream);
+  padding: var(--m);
+  font-size: 16pt;
+}
