@@ -33,7 +33,7 @@ const TextInput = (props) => {
 
   return (
     <div>
-      <input
+      <textarea
         autoFocus={props.autoFocus}
         type="text"
         placeholder={props.defaultText}
