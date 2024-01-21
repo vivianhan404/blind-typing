@@ -1,16 +1,26 @@
 .TextInput-prompt {
-    width: 0%;
-    outline-width: 0px;
-    border: 0px;
-    background-color: var(--main-blue);
+  width: 0%;
+  outline: none;
+  border: none;
+  background-color: var(--main-blue);
 }
 
 .TextInput-document {
-    width: 80%;
-    outline: none;
-    border: none;
-    color: var(--dark-grey);
-    background-color: var(--cream);
-    overflow-wrap: normal;
-    
+  color: var(--dark-grey);
+  background-color: var(--cream);
+  overflow-wrap: normal;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 16pt;
+
+
+  outline: none;
+  border: 1pt solid;
+  border-color: var(--cream-dl);
+  padding: var(--s);
+
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  resize: none;
 }
