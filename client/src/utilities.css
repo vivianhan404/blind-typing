@@ -16,14 +16,19 @@
 
 /* TODO: REPLACE WITH YOUR OWN FONT! */
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,600;1,8..60,700&display=swap');
 
 :root {
-  --primary: #396dff;
-  --primary--dim: #6987db;
-  --darkgrey: #d4d4d4;
-  --medgrey: #e0e0e0;
-  --grey: #f7f7f7;
-  --white: #fff;
+  --cream: #FAF6F1;
+  --cream-dl: #B1ACA8;
+  --dark-grey: #4E4E4E;
+  --dark-blue: #0C3D5B;
+  --main-blue: #5C8499;
+  --light-blue: #A6C2CE;
+  --pale-blue: #BDD0D8;
+  --dark-brown: #8A481D;
+  --red-brown: #B87141;
+  --light-brown: #D2A687;
 
   --xs: 4px;
   --s: 8px;
@@ -36,6 +41,16 @@ body {
   padding: 0;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
+}
+
+h1 {
+  font-family: 'Source Serif 4', serif;
+  font-weight: 700;
+}
+
+h2 {
+  font-family: 'Source Serif 4', serif;
+  font-weight: 600;
 }
 
 form {

@@ -9,13 +9,19 @@ const GOOGLE_CLIENT_ID = "940728155789-dr4d17sm01mt4kvlos551v9uimp9m8pv.apps.goo
 
 const Login = ({ userId, handleLogin, handleLogout }) => {
   return (
-    <>
-        <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
-            <h1>Login</h1>
-            <GoogleLogin onSuccess={handleLogin} onError={(err) => console.log(err)} />
-        </GoogleOAuthProvider>
-        <div className="Login-book">~~ book here lol ~~</div>
-    </>
+    <div>
+      <div className="Login-bookContainer">
+        <div className="Login-bookSpine" />
+        <div className="Login-bookCover">
+          <div className="Login-bookLabel u-flex">
+            <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
+              <h1>Login</h1>
+              <GoogleLogin onSuccess={handleLogin} onError={(err) => console.log(err)} />
+            </GoogleOAuthProvider>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
