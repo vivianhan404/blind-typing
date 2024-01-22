@@ -12,11 +12,10 @@ import "./NavBar.css";
  */
 
 const TEST_CONTENT = "~~ orz ~~";
-const NO_NAVBAR = ["/prompt", "/login", "/deadbeef"];
+const NO_NAVBAR = ["/prompt", "/login", "/deadbeef"];  //TODO fix visibility
 
 const NavBar = (props) => {
   const location = useLocation();
-  console.log(location.pathname);
 
   return NO_NAVBAR.includes(location.pathname) ? null : (
     <div className="NavBar-container">

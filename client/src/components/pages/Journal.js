@@ -10,7 +10,7 @@ import "./Journal.css";
  * Proptypes
  */
 
-const Journal = () => {
+const Journal = () => { // TODO: connect to api
   const navigate = useNavigate();
 
   const pageThumbs = TEST_PAGE_THUMB_DATA.map((thumbData) => (

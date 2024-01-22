@@ -6,7 +6,7 @@ import "./Document.css";
 import "../../utilities.css";
 
 
-const Document = (props) => {
+const Document = (props) => { // TODO: connect to api
   const navigate = useNavigate();
   const dataObj = useLocation().state;
   const [content, setContent] = useState("");
