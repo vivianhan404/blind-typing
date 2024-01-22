@@ -10,16 +10,6 @@ import "./Journal.css";
  * Proptypes
  */
 
-const TEST_THUMB_DATA = { prompt: "~~ test page ~~" };
-
-const TEST_PAGE_THUMB_DATA = [
-  { prompt: "1/18 halp" },
-  { prompt: "1/20 MVP" },
-  { prompt: "~~ test thumbnails ~~" },
-  { prompt: "this looks pretty jank" },
-  { prompt: "this doesn't format correctly sadge" },
-];
-
 const Journal = () => {
   const navigate = useNavigate();
 
