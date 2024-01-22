@@ -1,9 +1,10 @@
-.PageThumb-container {
+.Index-container {
   width: 200px;
   height: 250px;
   box-sizing: border-box;
   background-color: var(--cream);
   padding: var(--m);
+  text-decoration: none;
 
   display: flex;
   flex-direction: column;
@@ -11,9 +12,10 @@
   align-items: center;
 }
 
-.PageTHumb-promptText {
+.Index-promptText {
   color: var(--dark-grey);
   font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: large;
+  text-align: center;
 }

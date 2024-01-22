@@ -1,36 +1,42 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { DocText } from "../modules/TextInput";
+import { get, post } from "../../utilities";
 
 import "./Document.css";
 import "../../utilities.css";
 
-
-const Document = (props) => { // TODO: connect to api
+const Document = (props) => {
+  // return <div>heyo</div>;
   const navigate = useNavigate();
-  const dataObj = useLocation().state;
+  const { pageID } = useParams();
+  const [page, setPage] = useState({});
   const [content, setContent] = useState("");
 
   useEffect(() => {
-    setContent(dataObj.content);
+    get("/api/page", { _id: pageID }).then((pageObj) => {
+      setPage(pageObj);
+      setContent(pageObj.text);
+    });
   }, []);
 
-  const makeHandleClick = (to) => {
-    return () => {
-      navigate(to);
-    };
+  const handleBackClick = () => {
+    page.content = content;
+    post("/api/page", page).then(() => {
+      navigate(`/journal`);
+    });
   };
 
   return (
     <div className="Doc-background">
       <div className="Doc-headerContainer">
         <div className="Doc-backButtonContainter">
-          <button className="Doc-backButton" onClick={makeHandleClick("/journal")}>
+          <button className="Doc-backButton" onClick={handleBackClick}>
             back to journal
           </button>
         </div>
         <div className="Doc-promptContainer">
-          <div className="Doc-promptText">{dataObj.prompt}</div>
+          <div className="Doc-promptText">{page.prompt}</div>
         </div>
         <div className="Doc-backButtonContainter" />
       </div>
@@ -41,9 +47,10 @@ const Document = (props) => { // TODO: connect to api
           <DocText content={content} setContent={setContent} />
         </div>
         <div className="Doc-sidebarContainer Doc-sidebarRightContainer">
-          <button className="Doc-pageButton" onClick={makeHandleClick("/prompt")}>
+          {/* <button className="Doc-pageButton" onClick={makeHandleClick("/prompt")}>
             new page
-          </button>
+          </button> */}{" "}
+          {/* TODO re-write handleClick function */}
         </div>
       </div>
     </div>

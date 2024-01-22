@@ -69,8 +69,8 @@ const App = () => {
           }
         />
         <Route path="/journal" element={<Journal path="/journal" />} />
-        <Route path="/:pageID/prompt" element={<Prompt path="/prompt"/>} />
-        <Route path="/text" element={<Document path="/text" />} /> {/* TODO add :pageID back */}
+        <Route path="/:pageID/prompt" element={<Prompt path="/prompt" />} />
+        <Route path="/:pageID/text" element={<Document path="/text" />} />
         <Route path="/test" element={<Test path="/test" />} />
         <Route
           path="/todo"

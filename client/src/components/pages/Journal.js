@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { get, post } from "../../utilities";
 
-import PageThumb from "../modules/PageThumb";
+import Index from "../modules/Index";
 import "./Journal.css";
 
 /**
@@ -12,10 +13,28 @@ import "./Journal.css";
 
 const Journal = () => { // TODO: connect to api
   const navigate = useNavigate();
+  const [toc, setTOC] = useState([]);
 
-  const pageThumbs = TEST_PAGE_THUMB_DATA.map((thumbData) => (
-    <PageThumb prompt={thumbData.prompt} />
+  useEffect(() => {
+    get("/api/toc").then((idxList) => {
+      setTOC(idxList);
+    });
+  }, []);
+
+  const idxList = toc.map((idxObj) => (
+    <Index data={idxObj} />
   ));
+
+  // const handleClick = () => {
+  //   const page = { _id: idx._id, prompt: idx.prompt, text: content };
+  //   post("/api/page", page).then(() => {
+  //     navigate(`/${pageID}/text`);
+  //   });
+  // };
+
+  // const Indexs = TEST_PAGE_THUMB_DATA.map((thumbData) => (
+  //   <Index prompt={thumbData.prompt} />
+  // ));
 
   const handleClick = () => {
     navigate("/prompt");
@@ -31,7 +50,7 @@ const Journal = () => { // TODO: connect to api
           <button className="Journal-newPageButtonContainer" onClick={handleClick}>
             <div className="Journal-newPageButtonText">add new page</div>
           </button>
-          {pageThumbs}
+          {idxList}
         </div>
       </div>
     </div>

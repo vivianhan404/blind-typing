@@ -45,6 +45,7 @@ router.post("/initsocket", (req, res) => {
 
 const TEST_PROMPT = "~~ How was your day ~~";
 const TEST_TOC = [
+  // TODO make these valid idx objects
   { prompt: "1/18 halp" },
   { prompt: "1/20 MVP" },
   { prompt: "~~ test thumbnails ~~" },
@@ -69,6 +70,7 @@ router.get("/page", (req, res) => {
 
 router.post("/page", (req, res) => {
   console.log(req.body);
+  res.send({});
 });
 
 // table of contents = list of page index objects
@@ -82,6 +84,7 @@ router.get("/idx", (req, res) => {
 
 router.post("/idx", (req, res) => {
   console.log(req.body);
+  res.send({});
 });
 
 // anything else falls to this "not found" case

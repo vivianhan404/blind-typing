@@ -25,9 +25,8 @@ const Prompt = () => {
 
   const handleClick = () => {
     const page = { _id: idx._id, prompt: idx.prompt, text: content };
-    console.log(page);
     post("/api/page", page).then(() => {
-      navigate("/text");
+      navigate(`/${pageID}/text`);
     });
   };
 
