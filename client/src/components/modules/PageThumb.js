@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import "./PageThumb.css";
 
 /**
  * Page Thumbnail is a preview of a single entry on the Journal page
@@ -9,12 +11,11 @@ import {useNavigate} from "react-router-dom";
  */
 
 const PageThumb = (props) => {
-
-    return (
-        <div>
-            <div>{props.prompt}</div>
-        </div>
-    )
-}
+  return (
+    <div className="PageThumb-container">
+      <div className="PageThumb-promptText">{props.prompt}</div>
+    </div>
+  );
+};
 
 export default PageThumb;
