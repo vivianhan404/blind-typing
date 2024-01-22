@@ -4,18 +4,42 @@
   height: 100vh;
   background-color: #deadbf;
 
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .Test-grid {
   display: grid;
+  max-width: 85%;
+  gap: 50px;
+  /* grid-template-columns: repeat(auto-fill, ); */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* overflow-y: scroll; */
+
   background-color: #dead00;
 }
 
 .Test-gridCell {
-  width: 200;
-  height: 250;
+  width: 200px;
+  height: 250px;
+  /* justify-self: start; */
+  background-color: #000;
+  color: #fff;
+  box-sizing: border-box;
+  justify-self: center;
+}
+
+.Test-flexContainer {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #dead00;
+}
+
+.Test-flexCell {
+  width: 200px;
+  height: 250px;
+  margin: var(--m);
+  
   background-color: #000;
   color: #fff;
 }

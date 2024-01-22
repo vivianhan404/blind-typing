@@ -7,7 +7,7 @@
 
 .Journal-headerText {
   margin-bottom: var(--m);
-  margin-left: 8%;
+  margin-left: 15%;
 }
 
 .Journal-bodyContainer {
@@ -18,18 +18,17 @@
 }
 
 .Journal-pagesContainer {
-  display: flex;
   margin-top: var(--m);
   margin-bottom: var(--l);
   box-sizing: border-box;
-  /* flex-wrap: wrap; */
 
-  flex-basis: auto;
-  max-width: 84%;
-  flex-wrap: wrap;
-  /* min-width: 76%; */
-
-  background-color: blue;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 250px;
+  gap: 50px;
+  min-width: 75%;
+  max-width: 85%;
+  justify-items: center;
 }
 
 .Journal-newPageButtonContainer {
@@ -37,7 +36,6 @@
   height: 250px;
   border: none;
   background-color: var(--main-blue);
-  margin: var(--l);
   padding: var(--m);
   box-sizing: border-box;
 

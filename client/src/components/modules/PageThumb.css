@@ -1,10 +1,9 @@
 .PageThumb-container {
   width: 200px;
   height: 250px;
-  background-color: var(--cream);
-  margin: var(--l);
-  padding: var(--m);
   box-sizing: border-box;
+  background-color: var(--cream);
+  padding: var(--m);
 
   display: flex;
   flex-direction: column;
