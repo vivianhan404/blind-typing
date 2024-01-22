@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Router } from "@reach/router";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
 import jwt_decode from "jwt-decode";
@@ -57,28 +56,7 @@ const App = () => {
   return (
     <>
       <NavBar handleLogout={handleLogout} />
-      <div>
-        <Router>
-          <Login
-            path="/login"
-            handleLogin={handleLogin}
-            handleLogout={handleLogout}
-            userId={userId}
-          />
-          <Journal path="/journal" />
-          <Prompt path="/prompt" />
-          <Document path="/text" />
-          <Test path="/deadbeef" />
-          <Skeleton
-            path="/todo"
-            handleLogin={handleLogin}
-            handleLogout={handleLogout}
-            userId={userId}
-          />
-          <NotFound default/>
-        </Router>
-      </div>
-      {/* <Routes>
+      <Routes>
         <Route
           path="/login"
           element={
@@ -91,7 +69,7 @@ const App = () => {
           }
         />
         <Route path="/journal" element={<Journal path="/journal" />} />
-        <Route path="/prompt" element={<Prompt path="/prompt" />} />
+        <Route path="/prompt" element={<Prompt path="/prompt"/>} />
         <Route path="/text" element={<Document path="/text" />} />
         <Route path="/deadbeef" element={<Test path="/deadbeef" />} />
         <Route
@@ -106,7 +84,7 @@ const App = () => {
           }
         />
         <Route path="*" element={<NotFound />} />
-      </Routes> */}
+      </Routes>
     </>
   );
 };
