@@ -11,6 +11,7 @@ const express = require("express");
 
 // import models so we can interact with the database
 const User = require("./models/user");
+const Page = require("./models/page");
 
 // import authentication library
 const auth = require("./auth");
@@ -39,10 +40,7 @@ router.post("/initsocket", (req, res) => {
   res.send({});
 });
 
-// |------------------------------|
-// | write your API methods below!|
-// |------------------------------|
-
+// TODO: check if users have access to a page
 const TEST_PROMPT = "~~ How was your day ~~";
 const TEST_TOC = [
   // TODO make these valid idx objects
@@ -57,35 +55,51 @@ const LONG_TEXT =
 const TEST_PAGE = {
   _id: "deadbeef",
   prompt: TEST_PROMPT,
-  text: LONG_TEXT,
+  content: LONG_TEXT,
 };
 const TEST_IDX = {
   _id: "deadbeef",
   prompt: TEST_PROMPT,
 };
 
+// |------------------------------|
+// | write your API methods below!|
+// |------------------------------|
+
 router.get("/page", (req, res) => {
-  res.send(TEST_PAGE);
+  Page.findById(new ObjectID(req.query._id)).then((pageObj) => res.send(pageObj));
 });
 
 router.post("/page", (req, res) => {
-  console.log(req.body);
-  res.send({});
+  const newPage = {
+    creator_id: req.user._id,
+    prompt: TEST_PROMPT, // TODO: make prompt responsive
+    content: "",
+  }
+  newPage.save().then((page) => res.send(page));
+});
+
+router.post("/page-context", (req, res) => {
+  Page.findById(new ObjectID(req.query._id)).then((page) => {
+    page.content = req.body.content;
+    page.save().then((page) => res.send(page));
+  });
 });
 
 // table of contents = list of page index objects
 router.get("/toc", (req, res) => {
-  res.send(TEST_TOC);
+  Page.find({creator_id: req.user._id}).then((pages) => res.send(pages));
 });
 
-router.get("/idx", (req, res) => {
-  res.send(TEST_IDX);
-});
+// TODO: make sure nothing calls the idx api's
+// router.get("/idx", (req, res) => {
+//   
+// });
 
-router.post("/idx", (req, res) => {
-  console.log(req.body);
-  res.send({});
-});
+// router.post("/idx", (req, res) => {
+//   console.log(req.body);
+//   res.send({});
+// });
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {

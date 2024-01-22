@@ -11,7 +11,6 @@ import "./Index.css";
  */
 
 const Index = (props) => {
-  // TODO update param
   return (
     <a className="Index-container" href={`/${props.data._id}/text`}>
       <div className="Index-promptText">{props.data.prompt}</div>

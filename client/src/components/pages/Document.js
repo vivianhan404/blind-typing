@@ -16,14 +16,17 @@ const Document = (props) => {
   useEffect(() => {
     get("/api/page", { _id: pageID }).then((pageObj) => {
       setPage(pageObj);
-      setContent(pageObj.text);
+      setContent(pageObj.content);
     });
   }, []);
 
   const handleBackClick = () => {
-    page.content = content;
-    post("/api/page", page).then(() => {
-      navigate(`/journal`);
+    const body = {
+      _id: pageID,
+      content: content,
+    };
+    post("/api/page-content", body).then(() => {
+      navigate("/journal");
     });
   };
 

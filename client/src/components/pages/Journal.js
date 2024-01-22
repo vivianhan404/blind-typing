@@ -37,7 +37,10 @@ const Journal = () => { // TODO: connect to api
   // ));
 
   const handleClick = () => {
-    navigate("/prompt");
+    // TODO test make this actually create a new page
+    post("/api/page").then((page) => {
+      navigate(`/${page._id}/prompt`);
+    });
   };
 
   return (

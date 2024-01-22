@@ -24,8 +24,9 @@ const Prompt = () => {
   }, []);
 
   const handleClick = () => {
-    const page = { _id: idx._id, prompt: idx.prompt, text: content };
-    post("/api/page", page).then(() => {
+    const body = { _id: idx._id, content: content };
+    post("/api/page-content", page).then(() => {
+      // TODO: test change api
       navigate(`/${pageID}/text`);
     });
   };
