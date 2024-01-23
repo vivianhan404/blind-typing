@@ -10,7 +10,7 @@
 const express = require("express");
 
 // import models so we can interact with the database
-// const User = require("./models/user");
+const User = require("./models/user");
 const Page = require("./models/page");
 
 // import authentication library
@@ -71,11 +71,13 @@ router.get("/page", (req, res) => {
 });
 
 router.post("/page", (req, res) => {
-  const newPage = {
+  console.log("page");
+  console.log(req.user);
+  const newPage = new Page({
     creator_id: req.user._id,
     prompt: TEST_PROMPT, // TODO: make prompt responsive
     content: "",
-  };
+  });
   newPage.save().then((page) => res.send(page));
 });
 
@@ -89,15 +91,15 @@ router.post("/page-context", (req, res) => {
 // table of contents = list of page index objects
 router.get("/toc", (req, res) => {
   // Page.find({}).then((pages) => res.send(pages));
-  // Page.find({ creator_id: req.user._id.toString() }).then((pages) => res.send(pages));
-  Page.find({ creator_id: "foo" }).then((pages) => res.send(pages));
+  console.log("toc" + req.user);
+  Page.find({ creator_id: req.user._id.toString() }).then((pages) => res.send(pages));
 });
 
 router.get("/test", (req, res) => {
-  res.send(req.user._id);
+  console.log(req.user);
+  res.send({ _id: req.user._id });
 });
 
-// TODO: make sure nothing calls the idx api's
 // router.get("/idx", (req, res) => {
 //
 // });

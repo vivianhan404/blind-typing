@@ -37,6 +37,9 @@ function login(req, res) {
     .then((user) => {
       // persist user in the session
       req.session.user = user;
+      req.session.save(); // TODO: figure out why this has to be here
+      console.log("logged in");
+      console.log(req.session.user);
       res.send(user);
     })
     .catch((err) => {
@@ -53,6 +56,8 @@ function logout(req, res) {
 function populateCurrentUser(req, res, next) {
   // simply populate "req.user" for convenience
   req.user = req.session.user;
+  console.log("populated!");
+  console.log(req.user);
   next();
 }
 

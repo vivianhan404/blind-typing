@@ -44,13 +44,13 @@ const App = () => {
       setUserId(user._id);
       post("/api/initsocket", { socketid: socket.id });
     });
-    navigate("/journal");
+    // navigate("/journal"); // TODO: change login back
   };
 
   const handleLogout = () => {
     setUserId(undefined);
     post("/api/logout");
-    navigate("/login");
+    // navigate("/login");  // TODO: change logout back
   };
 
   return (
@@ -76,7 +76,17 @@ const App = () => {
         <Route path="/journal" element={<Journal path="/journal" />} />
         <Route path="/:pageID/prompt" element={<Prompt path="/prompt" />} />
         <Route path="/:pageID/text" element={<Document path="/text" />} />
-        <Route path="/test" element={<Test path="/test" />} />
+        <Route
+          path="/test"
+          element={
+            <Test
+              path="/todo"
+              handleLogin={handleLogin}
+              handleLogout={handleLogout}
+              userId={userId}
+            />
+          }
+        />
         <Route
           path="/todo"
           element={

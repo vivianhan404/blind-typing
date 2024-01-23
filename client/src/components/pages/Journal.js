@@ -11,19 +11,18 @@ import "./Journal.css";
  * Proptypes
  */
 
-const Journal = () => { // TODO: connect to api
+const Journal = () => {
   const navigate = useNavigate();
   const [toc, setTOC] = useState([]);
 
   useEffect(() => {
     get("/api/toc").then((idxList) => {
+      console.log(idxList);
       setTOC(idxList);
     });
   }, []);
 
-  const idxList = toc.map((idxObj) => (
-    <Index data={idxObj} />
-  ));
+  const idxList = toc.map((idxObj) => <Index data={idxObj} />);
 
   // const handleClick = () => {
   //   const page = { _id: idx._id, prompt: idx.prompt, text: content };
@@ -39,6 +38,8 @@ const Journal = () => { // TODO: connect to api
   const handleClick = () => {
     // TODO test make this actually create a new page
     post("/api/page").then((page) => {
+      console.log("created new page: " + page._id);
+      console.log(page);
       navigate(`/${page._id}/prompt`);
     });
   };

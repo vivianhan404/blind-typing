@@ -15,17 +15,17 @@ const Prompt = () => {
   const { pageID } = useParams();
   const navigate = useNavigate();
   const [content, setContent] = useState("");
-  const [idx, setIdx] = useState({});
+  const [page, setPage] = useState({});
 
   useEffect(() => {
-    get("/api/idx", { _id: pageID }).then((idxObj) => {
-      setIdx(idxObj);
+    get("/api/page", { _id: pageID }).then((pageObj) => {
+      setPage(pageObj);
     });
   }, []);
 
   const handleClick = () => {
-    const body = { _id: idx._id, content: content };
-    post("/api/page-content", page).then(() => {
+    const body = { _id: page._id, content: content };
+    post("/api/page-content", body).then(() => {
       // TODO: test change api
       navigate(`/${pageID}/text`);
     });
@@ -33,7 +33,7 @@ const Prompt = () => {
 
   return (
     <div className="Prompt-container">
-      <h1 className="Prompt-promptText">{idx.prompt}</h1>
+      <h1 className="Prompt-promptText">{page.prompt}</h1>
       <PromptText content={content} setContent={setContent} />
       <button className="Prompt-revealButton" onClick={handleClick}>
         Show text
