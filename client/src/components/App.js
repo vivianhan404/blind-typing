@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 
 import jwt_decode from "jwt-decode";
 
@@ -57,6 +57,11 @@ const App = () => {
     <>
       <NavBar handleLogout={handleLogout} />
       <Routes>
+        <Route
+          path="/"
+          element={userId ? <Navigate path="/" to="/journal" /> : <Navigate path="/" to="/login" />}
+          // element={<div>{userId === "hello"}</div>}
+        />
         <Route
           path="/login"
           element={

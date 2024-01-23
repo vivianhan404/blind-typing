@@ -1,23 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Test.css";
+import { get, post } from "../../utilities";
 
 const Test = () => {
-  return (
-    <div className="Test-background">
-      <div className="Test-grid">
-        <div className="Test-gridCell">1</div>
-        <div className="Test-gridCell">2</div>
-        <div className="Test-gridCell">3</div>
-        <div className="Test-gridCell">4</div>
-        <div className="Test-gridCell">5</div>
-        <div className="Test-gridCell">6</div>
-        <div className="Test-gridCell">7</div>
-        <div className="Test-gridCell">8</div>
-        <div className="Test-gridCell">9</div>
-        <div className="Test-gridCell">10</div>
-      </div>
-    </div>
-  );
+  let foo = "";
+  useEffect(() => {
+    get("/api/test").then((userID) => {
+      foo = userID;
+    });
+  }, []);
+
+  return <div className="Test-background"></div>;
 };
 
 export default Test;
