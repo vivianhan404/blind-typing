@@ -25,6 +25,8 @@ const Document = (props) => {
       _id: pageID,
       content: content,
     };
+    console.log("frontend back click");
+    console.log(body);
     post("/api/page-content", body).then(() => {
       navigate("/journal");
     });

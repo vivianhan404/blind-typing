@@ -52,8 +52,9 @@ const App = () => {
 
   const handleLogout = () => {
     setUserId(undefined);
-    post("/api/logout");
-    navigate("/login"); // TODO: change logout back
+    post("/api/logout").then(() => {
+      navigate("/login");
+    });
   };
 
   return (

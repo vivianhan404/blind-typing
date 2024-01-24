@@ -17,10 +17,9 @@ const Journal = () => {
 
   useEffect(() => {
     get("/api/toc").then((idxList) => {
-      console.log(idxList);
       setTOC(idxList);
     });
-  }, []);
+  }, []); // TODO make the list in order by adding last-edited date?
 
   const idxList = toc.map((idxObj) => <Index data={idxObj} />);
 

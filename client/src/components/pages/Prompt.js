@@ -21,7 +21,7 @@ const Prompt = () => {
     get("/api/page", { _id: pageID }).then((pageObj) => {
       setPage(pageObj);
     });
-  }, []);
+  }, []); // TODO: make input box invisible
 
   const handleClick = () => {
     const body = { _id: page._id, content: content };
