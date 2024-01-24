@@ -9,8 +9,17 @@ const GOOGLE_CLIENT_ID = "940728155789-dr4d17sm01mt4kvlos551v9uimp9m8pv.apps.goo
 
 const Test = ({ userId, handleLogin, handleLogout }) => {
   const clickTOC = () => {
-    post("/api/toc").then((idxList) => {
+    get("/api/toc").then((idxList) => {
+      console.log("toc");
       console.log(idxList);
+    });
+  };
+
+  const clickNewPage = () => {
+    post("/api/page").then((pageObj) => {
+      console.log("new page!");
+      console.log(pageObj);
+      console.log(pageObj._id);
     });
   };
 
@@ -31,7 +40,10 @@ const Test = ({ userId, handleLogin, handleLogout }) => {
         )}
       </GoogleOAuthProvider>
 
+      <br />
       <button onClick={clickTOC}>TOC</button>
+      <br />
+      <button onClick={clickNewPage}>New Page</button>
     </>
   );
 };

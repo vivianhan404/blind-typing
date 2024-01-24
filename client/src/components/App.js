@@ -40,17 +40,20 @@ const App = () => {
     const userToken = credentialResponse.credential;
     const decodedCredential = jwt_decode(userToken);
     console.log(`Logged in as ${decodedCredential.name}`);
-    post("/api/login", { token: userToken }).then((user) => {
-      setUserId(user._id);
-      post("/api/initsocket", { socketid: socket.id });
-    });
-    // navigate("/journal"); // TODO: change login back
+    post("/api/login", { token: userToken })
+      .then((user) => {
+        setUserId(user._id);
+        post("/api/initsocket", { socketid: socket.id });
+      })
+      .then(() => {
+        navigate("/journal");
+      });
   };
 
   const handleLogout = () => {
     setUserId(undefined);
     post("/api/logout");
-    // navigate("/login");  // TODO: change logout back
+    navigate("/login"); // TODO: change logout back
   };
 
   return (

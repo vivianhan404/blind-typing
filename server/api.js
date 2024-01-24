@@ -67,10 +67,10 @@ const TEST_IDX = {
 // |------------------------------|
 
 router.get("/page", (req, res) => {
-  Page.findById(new ObjectID(req.query._id)).then((pageObj) => res.send(pageObj));
+  Page.findById(req.query._id).then((pageObj) => res.send(pageObj));
 });
 
-router.post("/page", (req, res) => {
+router.post("/page", auth.ensureLoggedIn, (req, res) => {
   console.log("page");
   console.log(req.user);
   const newPage = new Page({
@@ -90,9 +90,11 @@ router.post("/page-context", (req, res) => {
 
 // table of contents = list of page index objects
 router.get("/toc", (req, res) => {
+  // res.send({ list: [] });
   // Page.find({}).then((pages) => res.send(pages));
-  console.log("toc" + req.user);
-  Page.find({ creator_id: req.user._id.toString() }).then((pages) => res.send(pages));
+  // console.log("toc");
+  // console.log(req.user);
+  Page.find({ creator_id: req.user._id }).then((pages) => res.send(pages));
 });
 
 router.get("/test", (req, res) => {
