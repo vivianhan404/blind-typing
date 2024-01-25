@@ -17,7 +17,7 @@ const Journal = () => {
 
   useEffect(() => {
     get("/api/toc").then((idxList) => {
-      setTOC(idxList);
+      setTOC(idxList.reverse());
     });
   }, []); // TODO make the list in order by adding last-edited date?
 
@@ -35,7 +35,7 @@ const Journal = () => {
   // ));
 
   const handleClick = () => {
-    // TODO test make this actually create a new page
+    // TODO change routing to new page
     post("/api/page").then((page) => {
       console.log("created new page: " + page._id);
       console.log(page);

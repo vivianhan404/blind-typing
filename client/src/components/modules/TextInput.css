@@ -1,11 +1,11 @@
-.TextInput-prompt {
+.TextInput-invisible {
   width: 0%;
   outline: none;
   border: none;
   background-color: var(--main-blue);
 }
 
-.TextInput-document {
+.TextInput-visible {
   color: var(--dark-grey);
   background-color: var(--cream);
   overflow-wrap: normal;

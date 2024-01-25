@@ -53,7 +53,7 @@ const TextInput = (props) => {
 const DocText = (props) => {
   return (
     <TextInput
-      textStyle="TextInput-document"
+      textStyle="TextInput-visible"
       defaultText="I feel..."
       value={props.content}
       setValue={props.setContent}
@@ -74,7 +74,26 @@ const PromptText = (props) => {
       autoFocus={true}
       value={props.content}
       setValue={props.setContent}
-      textStyle="TextInput-prompt"
+      textStyle="TextInput-invisible"
+    />
+  );
+};
+
+/**
+ * Prompt Text is a Prompt component for text input
+ *
+ * Proptypes
+ * @param {string} content is the placeholder text
+ * @param {({value} => void)} setContent is the setter for value
+ * @param {string} defaultText is the default text of the text box
+ */
+const NewEntryText = (props) => {
+  return (
+    <TextInput
+      defaultText={props.defaultText}
+      value={props.content}
+      setValue={props.setContent}
+      textStyle="TextInput-visible"
     />
   );
 };
@@ -98,4 +117,4 @@ const NewComment = (props) => {
   return <TextInput defaultText="New Comment" onSubmit={addComment} />;
 };
 
-export { DocText, PromptText, TextInput };
+export { DocText, PromptText, NewEntryText, TextInput };
