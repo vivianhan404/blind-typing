@@ -12,7 +12,6 @@
 
 .Journal-bodyContainer {
   width: 100%;
-  /* max-height: 100%; */
   display: flex;
   flex-grow: 1;
   justify-content: center;

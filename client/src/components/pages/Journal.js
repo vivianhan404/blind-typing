@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { get, post } from "../../utilities";
+import { get } from "../../utilities";
 
 import SinglePage from "../modules/SinglePage";
 import "./Journal.css";
@@ -8,12 +8,9 @@ import "../../utilities.css";
 
 /**
  * Journal is the journal home page
- *
- * Proptypes
  */
 
 const Journal = () => {
-  const navigate = useNavigate();
   const [toc, setTOC] = useState([]);
 
   useEffect(() => {

@@ -8,8 +8,6 @@ import "../../utilities.css";
 
 /**
  * Prompt is the 'prompt only' page
- *
- * Proptypes
  */
 
 const Prompt = () => {
@@ -35,7 +33,6 @@ const Prompt = () => {
   };
 
   return (
-    // TODO: add back button to journal
     <div className="u-background Prompt-container">
       <button className="Prompt-backButton u-button" onClick={handleClick("/journal")}>
         back to journal

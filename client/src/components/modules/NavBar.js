@@ -11,7 +11,6 @@ import "./NavBar.css";
  * @param {string} handleLogout the prompt to be answered
  */
 
-const TEST_CONTENT = "~~ orz ~~";
 const NO_NAVBAR = ["/prompt", "/login", "/deadbeef"];  //TODO fix visibility
 
 const NavBar = (props) => {

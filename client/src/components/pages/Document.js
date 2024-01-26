@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { DocText } from "../modules/TextInput";
+import { TextBox } from "../modules/TextInput";
 import { get, post } from "../../utilities";
 
 import "./Document.css";
 import "../../utilities.css";
 
-const Document = (props) => {
+const Document = () => {
   const navigate = useNavigate();
   const { pageID } = useParams();
   const [page, setPage] = useState({});
@@ -32,7 +32,7 @@ const Document = (props) => {
   };
 
   return (
-    <div className="Doc-background u-background ">
+    <div className="u-background u-flexColumn">
       <div className="Doc-headerContainer">
         <div className="Doc-backButtonContainter">
           <button className="Doc-backButton u-button" onClick={handleClick("../journal")}>
@@ -53,7 +53,7 @@ const Document = (props) => {
 
       <div className="Doc-bodyContainer">
         <div className="Doc-textContainer">
-          <DocText content={content} setContent={setContent} />
+          <TextBox content={content} setContent={setContent} defaultText="I feel ... " />
         </div>
       </div>
     </div>

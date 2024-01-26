@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React from "react";
 
 import "./SinglePage.css";
 
@@ -7,9 +6,9 @@ import "./SinglePage.css";
  * Page Thumbnail is a preview of a single entry on the Journal page
  *
  * Proptypes
- * @param {string} data is an index object for the page
+ * @param {string} data is a page object
  */
-
+// TODO add dates
 const SinglePage = (props) => {
   return (
     <a className="SinglePage-container" href={`/${props.data._id}/text`}>

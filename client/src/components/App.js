@@ -5,13 +5,11 @@ import jwt_decode from "jwt-decode";
 
 // pages:
 import NotFound from "./pages/NotFound.js";
-import Skeleton from "./pages/Skeleton.js";
 import Document from "./pages/Document.js";
 import Prompt from "./pages/Prompt.js";
 import Login from "./pages/Login.js";
 import Journal from "./pages/Journal.js";
 import NewPage from "./pages/NewPage.js";
-import Test from "./pages/Test.js";
 
 import "../utilities.css";
 
@@ -67,43 +65,11 @@ const App = () => {
           element={userId ? <Navigate path="/" to="/journal" /> : <Navigate path="/" to="/login" />}
           // element={<div>{userId === "hello"}</div>}
         />
-        <Route
-          path="/login"
-          element={
-            <Login
-              path="/login"
-              handleLogin={handleLogin}
-              handleLogout={handleLogout}
-              userId={userId}
-            />
-          }
-        />
+        <Route path="/login" element={<Login path="/login" handleLogin={handleLogin} />} />
         <Route path="/journal" element={<Journal path="/journal" />} />
         <Route path="/create" element={<NewPage path="/create" />} />
         <Route path="/:pageID/prompt" element={<Prompt path="/prompt" />} />
         <Route path="/:pageID/text" element={<Document path="/text" />} />
-        <Route
-          path="/test"
-          element={
-            <Test
-              path="/todo"
-              handleLogin={handleLogin}
-              handleLogout={handleLogout}
-              userId={userId}
-            />
-          }
-        />
-        <Route
-          path="/todo"
-          element={
-            <Skeleton
-              path="/todo"
-              handleLogin={handleLogin}
-              handleLogout={handleLogout}
-              userId={userId}
-            />
-          }
-        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

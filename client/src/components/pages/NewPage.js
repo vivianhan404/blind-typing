@@ -2,14 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { get, post } from "../../utilities";
 
-import { NewPageText } from "../modules/TextInput";
+import { TextBox } from "../modules/TextInput";
 import "./NewPage.css";
 import "../../utilities.css";
 
 /**
  * New Page sets the prompt for a new journal page
- *
- * Proptypes
  */
 
 const NewPage = () => {
@@ -33,11 +31,7 @@ const NewPage = () => {
         </a>
         <div>
           <div className="NewPage-promptContainer">
-            <NewPageText
-              content={prompt}
-              setContent={setPrompt}
-              defaultText="Today's prompt is ..."
-            />
+            <TextBox content={prompt} setContent={setPrompt} defaultText="Today's prompt is ..." />
           </div>
           <button className="u-button NewPage-submitButton" onClick={createPage}>
             Create page

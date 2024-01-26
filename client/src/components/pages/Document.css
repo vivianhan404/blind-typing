@@ -59,27 +59,3 @@
   margin-bottom: var(--m);
   flex-basis: 80%;
 }
-
-.Doc-sidebarContainer {
-  flex-basis: 10%;
-}
-
-.Doc-sidebarRightContainer {
-  display: flex;
-  justify-content: center;
-  align-content: flex-end;
-}
-
-.Doc-pageButton {
-  color: var(--cream);
-  border-color: var(--light-brown);
-  background-color: var(--light-brown);
-
-  align-self: flex-end;
-  z-index: 1;
-}
-
-.Doc-background {
-  display: flex;
-  flex-direction: column;
-}
