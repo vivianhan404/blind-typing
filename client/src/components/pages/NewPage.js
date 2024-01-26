@@ -16,26 +16,33 @@ const NewPage = () => {
   const navigate = useNavigate();
   const [prompt, setPrompt] = useState("");
 
-  const handleClick = () => {
+  const createPage = () => {
     const body = { prompt: prompt };
     post("/api/page", body).then((page) => {
-      navigate(`/${page._id}/prompt`);
+      post("/api/new-text", { pageID: page._id }).then((text) => {
+        navigate(`/${page._id}/prompt`);
+      });
     });
   };
 
   return (
     <div className="u-background NewPage-background">
       <div className="NewPage-mainContainer">
-        <div className="NewPage-promptContainer">
-          <NewPageText
-            content={prompt}
-            setContent={setPrompt}
-            defaultText="Today's prompt is ..."
-          />
+        <a href="/journal" className="NewPage-backButtonContainer">
+          <button className="NewPage-backButton u-button">Cancel</button>
+        </a>
+        <div>
+          <div className="NewPage-promptContainer">
+            <NewPageText
+              content={prompt}
+              setContent={setPrompt}
+              defaultText="Today's prompt is ..."
+            />
+          </div>
+          <button className="u-button NewPage-submitButton" onClick={createPage}>
+            Create page
+          </button>
         </div>
-        <button className="NewPage-submitButton" onClick={handleClick}>
-          Create page
-        </button>
       </div>
     </div>
   );

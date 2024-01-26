@@ -61,6 +61,15 @@ form {
   height: 100vh;
 }
 
+.u-button {
+  font-size: 16px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  padding: var(--s);
+  margin: var(--m);
+  cursor: pointer;
+}
+
 .u-flex {
   display: flex;
 }

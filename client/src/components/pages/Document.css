@@ -21,6 +21,7 @@
 }
 
 .Doc-promptContainer {
+  /*TODO: change buttons u-button */
   flex-basis: 60%;
   display: flex;
   justify-content: center;

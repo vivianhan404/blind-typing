@@ -24,15 +24,6 @@ const Journal = () => {
 
   const pageList = toc.map((pageObj) => <SinglePage data={pageObj} />);
 
-  const handleClick = () => {
-    // TODO change routing to new page
-    post("/api/page").then((page) => {
-      post("/api/new-text", { pageID: page._id }).then((text) => {
-        navigate(`/${page._id}/prompt`);
-      });
-    });
-  };
-
   return (
     <div className="u-background Journal-background">
       <div className="Journal-headerContainer">
@@ -40,9 +31,9 @@ const Journal = () => {
       </div>
       <div className="Journal-bodyContainer">
         <div className="Journal-pagesContainer">
-          <button className="Journal-newPageButtonContainer" onClick={handleClick}>
+          <a className="Journal-newPageButtonContainer" href="/create">
             <div className="Journal-newPageButtonText">add new page</div>
-          </button>
+          </a>
           {pageList}
         </div>
       </div>

@@ -75,7 +75,7 @@ router.get("/page", (req, res) => {
 router.post("/page", auth.ensureLoggedIn, (req, res) => {
   const newPage = new Page({
     creator_id: req.user._id,
-    prompt: TEST_PROMPT, // TODO: make prompt responsive
+    prompt: req.body.prompt,
   });
   newPage.save().then((page) => res.send(page));
 });

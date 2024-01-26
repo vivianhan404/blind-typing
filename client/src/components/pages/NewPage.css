@@ -1,0 +1,41 @@
+.NewPage-backButton {
+  align-self: start;
+  margin: 0px;
+  border-width: 1pt;
+  border-color: var(--cream-dl);
+}
+
+.NewPage-backButtonContainer {
+  align-self: start;
+  margin: var(--m);
+}
+
+.NewPage-submitButton {
+  color: var(--cream);
+  /* font-weight: 600;  */
+  border-width: 1pt;
+  background-color: var(--main-blue);
+  border-color: var(--light-blue);
+}
+
+.NewPage-promptContainer {
+  margin: var(--m);
+  width: 50vw;
+  height: 30vh;
+}
+
+.NewPage-mainContainer {
+  margin: var(--l);
+  padding: var(--l);
+  background-color: var(--cream);
+
+  display: flex;
+  flex-direction: row;
+}
+
+.NewPage-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #404d5b;
+}
