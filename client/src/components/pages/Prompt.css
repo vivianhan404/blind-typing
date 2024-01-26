@@ -14,6 +14,16 @@
   background-color: var(--main-blue);
 }
 
+.Prompt-backButton {
+  color: var(--cream);
+  border-color: var(--cream);
+  background-color: var(--main-blue);
+
+  position: fixed;
+  top: var(--m);
+  left: var(--xl);
+}
+
 .Prompt-container {
   display: flex;
   justify-content: center;

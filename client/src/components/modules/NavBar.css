@@ -1,6 +1,6 @@
 .NavBar-container {
   position: fixed;
-  right: 40px;
+  right: var(--xl);
   background-color: var(--dark-brown);
   display: flex;
   justify-content: center;

@@ -24,20 +24,25 @@ const Prompt = () => {
     });
   }, []); // TODO: make input box invisible
 
-  const handleClick = () => {
-    const body = { pageID: page._id, content: content };
+  const handleClick = (linkTo) => () => {
+    const body = {
+      pageID: pageID,
+      content: content,
+    };
     post("/api/text", body).then(() => {
-      // TODO: test change api
-      navigate(`/${pageID}/text`);
+      navigate(linkTo);
     });
   };
 
   return (
     // TODO: add back button to journal
     <div className="u-background Prompt-container">
+      <button className="Prompt-backButton u-button" onClick={handleClick("/journal")}>
+        back to journal
+      </button>
       <h1 className="Prompt-promptText">{page.prompt}</h1>
       <PromptText content={content} setContent={setContent} />
-      <button className="Prompt-revealButton" onClick={handleClick}>
+      <button className="Prompt-revealButton" onClick={handleClick(`/${pageID}/text`)}>
         Show text
       </button>
     </div>
