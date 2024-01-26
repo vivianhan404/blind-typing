@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { get, post } from "../../utilities";
 
-import { NewEntryText } from "../modules/TextInput";
-import "./NewEntry.css";
+import { NewPageText } from "../modules/TextInput";
+import "./NewPage.css";
 
 /**
- * New Entry sets the prompt for a new journal Entry
+ * New Page sets the prompt for a new journal page
  *
  * Proptypes
  */
 
-const NewEntry = () => {
+const NewPage = () => {
   const navigate = useNavigate();
   const [prompt, setPrompt] = useState("");
 
@@ -23,21 +23,21 @@ const NewEntry = () => {
   };
 
   return (
-    <div className="NewEntry-background">
-      <div className="NewEntry-mainContainer">
-        <div className="NewEntry-promptContainer">
-          <NewEntryText
+    <div className="NewPage-background">
+      <div className="NewPage-mainContainer">
+        <div className="NewPage-promptContainer">
+          <NewPageText
             content={prompt}
             setContent={setPrompt}
             defaultPrompt="Today's prompt is ..."
           />
         </div>
-        <button className="NewEntry-submitButton" onClick={handleClick}>
-          Create entry
+        <button className="NewPage-submitButton" onClick={handleClick}>
+          Create page
         </button>
       </div>
     </div>
   );
 };
 
-export default NewEntry;
+export default NewPage;

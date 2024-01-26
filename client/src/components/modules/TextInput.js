@@ -87,7 +87,7 @@ const PromptText = (props) => {
  * @param {({value} => void)} setContent is the setter for value
  * @param {string} defaultText is the default text of the text box
  */
-const NewEntryText = (props) => {
+const NewPageText = (props) => {
   return (
     <TextInput
       defaultText={props.defaultText}
@@ -117,4 +117,4 @@ const NewComment = (props) => {
   return <TextInput defaultText="New Comment" onSubmit={addComment} />;
 };
 
-export { DocText, PromptText, NewEntryText, TextInput };
+export { DocText, PromptText, NewPageText, TextInput };

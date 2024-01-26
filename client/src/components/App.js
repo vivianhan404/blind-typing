@@ -10,7 +10,7 @@ import Document from "./pages/Document.js";
 import Prompt from "./pages/Prompt.js";
 import Login from "./pages/Login.js";
 import Journal from "./pages/Journal.js";
-import NewEntry from "./pages/NewEntry.js";
+import NewPage from "./pages/NewPage.js";
 import Test from "./pages/Test.js";
 
 import "../utilities.css";
@@ -79,7 +79,7 @@ const App = () => {
           }
         />
         <Route path="/journal" element={<Journal path="/journal" />} />
-        <Route path="/create" element={<NewEntry path="/create" />} /> 
+        <Route path="/create" element={<NewPage path="/create" />} />
         <Route path="/:pageID/prompt" element={<Prompt path="/prompt" />} />
         <Route path="/:pageID/text" element={<Document path="/text" />} />
         <Route
