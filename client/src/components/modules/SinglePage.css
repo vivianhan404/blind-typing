@@ -1,0 +1,21 @@
+.SinglePage-container {
+  width: 200px;
+  height: 250px;
+  box-sizing: border-box;
+  background-color: var(--cream);
+  padding: var(--m);
+  text-decoration: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.SinglePage-promptText {
+  color: var(--dark-grey);
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: large;
+  text-align: center;
+}

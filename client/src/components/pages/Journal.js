@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { get, post } from "../../utilities";
 
-import Index from "../modules/Index";
+import SinglePage from "../modules/SinglePage";
 import "./Journal.css";
 
 /**
@@ -16,30 +16,19 @@ const Journal = () => {
   const [toc, setTOC] = useState([]);
 
   useEffect(() => {
-    get("/api/toc").then((idxList) => {
-      setTOC(idxList.reverse());
+    get("/api/toc").then((pageList) => {
+      setTOC(pageList.reverse());
     });
   }, []); // TODO make the list in order by adding last-edited date?
 
-  const idxList = toc.map((idxObj) => <Index data={idxObj} />);
-
-  // const handleClick = () => {
-  //   const page = { _id: idx._id, prompt: idx.prompt, text: content };
-  //   post("/api/page", page).then(() => {
-  //     navigate(`/${pageID}/text`);
-  //   });
-  // };
-
-  // const Indexs = TEST_PAGE_THUMB_DATA.map((thumbData) => (
-  //   <Index prompt={thumbData.prompt} />
-  // ));
+  const pageList = toc.map((pageObj) => <SinglePage data={pageObj} />);
 
   const handleClick = () => {
     // TODO change routing to new page
     post("/api/page").then((page) => {
-      console.log("created new page: " + page._id);
-      console.log(page);
-      navigate(`/${page._id}/prompt`);
+      post("/api/new-text", { pageID: page._id }).then((text) => {
+        navigate(`/${page._id}/prompt`);
+      });
     });
   };
 
@@ -53,7 +42,7 @@ const Journal = () => {
           <button className="Journal-newPageButtonContainer" onClick={handleClick}>
             <div className="Journal-newPageButtonText">add new page</div>
           </button>
-          {idxList}
+          {pageList}
         </div>
       </div>
     </div>
