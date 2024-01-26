@@ -38,8 +38,6 @@ function login(req, res) {
       // persist user in the session
       req.session.user = user;
       // req.session.save(); // TODO: figure out why this has to be here
-      console.log("logged in");
-      console.log(req.session.user);
       res.send(user);
     })
     .catch((err) => {

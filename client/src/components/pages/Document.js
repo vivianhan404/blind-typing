@@ -14,20 +14,22 @@ const Document = (props) => {
   const [content, setContent] = useState("");
 
   useEffect(() => {
-    get("/api/page", { _id: pageID }).then((pageObj) => {
+    get("/api/page", { pageID: pageID }).then((pageObj) => {
       setPage(pageObj);
-      setContent(pageObj.content);
+    });
+    get("/api/text", { pageID: pageID }).then((textObj) => {
+      console.log("init text");
+      console.log(textObj.content);
+      setContent(textObj.content);
     });
   }, []);
 
   const handleBackClick = () => {
     const body = {
-      _id: pageID,
+      pageID: pageID,
       content: content,
     };
-    console.log("frontend back click");
-    console.log(body);
-    post("/api/page-content", body).then(() => {
+    post("/api/text", body).then(() => {
       navigate("/journal");
     });
   };

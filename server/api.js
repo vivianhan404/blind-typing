@@ -68,23 +68,37 @@ const TEST_IDX = {
 // |------------------------------|
 
 router.get("/page", (req, res) => {
-  Page.findById(req.query._id).then((pageObj) => res.send(pageObj));
+  // TODO change query in front end pageID
+  Page.findById(req.query.pageID).then((pageObj) => res.send(pageObj));
 });
 
 router.post("/page", auth.ensureLoggedIn, (req, res) => {
   const newPage = new Page({
     creator_id: req.user._id,
     prompt: TEST_PROMPT, // TODO: make prompt responsive
-    content: "",
   });
   newPage.save().then((page) => res.send(page));
 });
 
-router.post("/page-content", auth.ensureLoggedIn, (req, res) => {
-  Page.findById(req.body._id).then((page) => {
-    page.content = req.body.content;
-    page.save().then((page) => res.send(page));
+router.get("/text", (req, res) => {
+  Text.findOne({ pageID: req.query.pageID }).then((text) => {
+    res.send(text);
   });
+});
+
+router.post("/new-text", (req, res) => {
+  const newText = new Text({
+    pageID: req.body.pageID,
+    content: "",
+  });
+  newText.save().then((text) => res.send(text.toObject()));
+});
+
+router.post("/text", (req, res) => {
+  // TODO: findbyID doesn't work here - maybe doesn't work on strings?
+  Text.updateOne({ pageID: req.body.pageID }, { content: req.body.content }).then((idk) =>
+    res.send(idk)
+  );
 });
 
 // table of contents = list of page index objects
@@ -96,15 +110,6 @@ router.get("/test", (req, res) => {
   console.log(req.user);
   res.send({ _id: req.user._id });
 });
-
-// router.get("/idx", (req, res) => {
-//
-// });
-
-// router.post("/idx", (req, res) => {
-//   console.log(req.body);
-//   res.send({});
-// });
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {

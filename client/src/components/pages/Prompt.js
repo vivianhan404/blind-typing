@@ -18,20 +18,21 @@ const Prompt = () => {
   const [page, setPage] = useState({});
 
   useEffect(() => {
-    get("/api/page", { _id: pageID }).then((pageObj) => {
+    get("/api/page", { pageID: pageID }).then((pageObj) => {
       setPage(pageObj);
     });
   }, []); // TODO: make input box invisible
 
   const handleClick = () => {
-    const body = { _id: page._id, content: content };
-    post("/api/page-content", body).then(() => {
+    const body = { pageID: page._id, content: content };
+    post("/api/text", body).then(() => {
       // TODO: test change api
       navigate(`/${pageID}/text`);
     });
   };
 
   return (
+    // TODO: add back button to journal
     <div className="Prompt-container">
       <h1 className="Prompt-promptText">{page.prompt}</h1>
       <PromptText content={content} setContent={setContent} />
