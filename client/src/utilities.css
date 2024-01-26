@@ -14,7 +14,7 @@
 */
 
 @import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,600;1,8..60,700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,600;1,8..60,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,600;1,8..60,700&display=swap");
 
 :root {
   --cream: #faf6f1;
@@ -37,7 +37,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
 }
 
@@ -53,6 +53,12 @@ h2 {
 
 form {
   flex-grow: 1;
+}
+
+.u-background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
 }
 
 .u-flex {

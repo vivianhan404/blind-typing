@@ -35,7 +35,7 @@ const Document = (props) => {
   };
 
   return (
-    <div className="Doc-background">
+    <div className="u-background Doc-background">
       <div className="Doc-headerContainer">
         <div className="Doc-backButtonContainter">
           <button className="Doc-backButton" onClick={handleBackClick}>

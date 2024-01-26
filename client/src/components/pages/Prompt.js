@@ -4,6 +4,7 @@ import { get, post } from "../../utilities";
 
 import { PromptText } from "../modules/TextInput";
 import "./Prompt.css";
+import "../../utilities.css";
 
 /**
  * Prompt is the 'prompt only' page
@@ -33,7 +34,7 @@ const Prompt = () => {
 
   return (
     // TODO: add back button to journal
-    <div className="Prompt-container">
+    <div className="u-background Prompt-container">
       <h1 className="Prompt-promptText">{page.prompt}</h1>
       <PromptText content={content} setContent={setContent} />
       <button className="Prompt-revealButton" onClick={handleClick}>

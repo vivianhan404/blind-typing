@@ -8,7 +8,7 @@ const GOOGLE_CLIENT_ID = "940728155789-dr4d17sm01mt4kvlos551v9uimp9m8pv.apps.goo
 
 const Login = ({ userId, handleLogin, handleLogout }) => {
   return (
-    <div className="Login-container">
+    <div className="u-background Login-container">
       <div className="Login-bookContainer">
         <div className="Login-bookSpine" />
         <div className="Login-bookCover">

@@ -4,6 +4,7 @@ import { get, post } from "../../utilities";
 
 import { NewPageText } from "../modules/TextInput";
 import "./NewPage.css";
+import "../../utilities.css";
 
 /**
  * New Page sets the prompt for a new journal page
@@ -23,13 +24,13 @@ const NewPage = () => {
   };
 
   return (
-    <div className="NewPage-background">
+    <div className="u-background NewPage-background">
       <div className="NewPage-mainContainer">
         <div className="NewPage-promptContainer">
           <NewPageText
             content={prompt}
             setContent={setPrompt}
-            defaultPrompt="Today's prompt is ..."
+            defaultText="Today's prompt is ..."
           />
         </div>
         <button className="NewPage-submitButton" onClick={handleClick}>

@@ -4,6 +4,7 @@ import { get, post } from "../../utilities";
 
 import SinglePage from "../modules/SinglePage";
 import "./Journal.css";
+import "../../utilities.css";
 
 /**
  * Journal is the journal home page
@@ -33,7 +34,7 @@ const Journal = () => {
   };
 
   return (
-    <div className="Journal-background">
+    <div className="u-background Journal-background">
       <div className="Journal-headerContainer">
         <h1 className="Journal-headerText">Everyday Journal</h1>
       </div>
