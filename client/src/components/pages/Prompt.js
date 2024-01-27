@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { get, post } from "../../utilities";
+import { Progress } from "reactstrap";
 
 import { PromptText } from "../modules/TextInput";
 import "./Prompt.css";
@@ -39,6 +40,7 @@ const Prompt = () => {
       </button>
       <h1 className="Prompt-promptText">{page.prompt}</h1>
       <PromptText content={content} setContent={setContent} />
+      <Progress value={60} className="Prompt-progress" barClassName="Prompt-progressBar" />
       <button className="Prompt-revealButton" onClick={handleClick(`/${pageID}/text`)}>
         Show text
       </button>

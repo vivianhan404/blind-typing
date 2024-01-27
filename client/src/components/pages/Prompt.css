@@ -1,3 +1,20 @@
+.Prompt-progress {
+  height: 60px;
+  width: 60%;
+
+  border: 4pt solid;
+  border-color: var(--cream);
+
+  margin: var(--m);
+  border-radius: var(--m);
+  overflow: hidden;
+}
+
+.Prompt-progressBar {
+  height: 100%;
+  background-color: var(--cream);
+}
+
 .Prompt-promptText {
   width: 80%;
   color: var(--cream);
