@@ -28,6 +28,7 @@
   color: var(--cream);
   border-color: var(--cream);
   padding: var(--m);
+  margin: var(--m);
   background-color: var(--main-blue);
 }
 

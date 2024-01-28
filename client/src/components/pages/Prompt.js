@@ -23,6 +23,8 @@ const Prompt = () => {
     });
   }, []); // TODO: make input box invisible
 
+  const wordCount = content.split(/\s+/).filter(Boolean).length;
+
   const handleClick = (linkTo) => () => {
     const body = {
       pageID: pageID,
@@ -40,7 +42,7 @@ const Prompt = () => {
       </button>
       <h1 className="Prompt-promptText">{page.prompt}</h1>
       <PromptText content={content} setContent={setContent} />
-      <Progress value={60} className="Prompt-progress" barClassName="Prompt-progressBar" />
+      <Progress value={wordCount} max={200} className="Prompt-progress" barClassName="Prompt-progressBar" />
       <button className="Prompt-revealButton" onClick={handleClick(`/${pageID}/text`)}>
         Show text
       </button>
