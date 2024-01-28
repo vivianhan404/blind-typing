@@ -21,6 +21,9 @@ const Prompt = () => {
     get("/api/page", { pageID: pageID }).then((pageObj) => {
       setPage(pageObj);
     });
+    get("/api/text", { pageID: pageID }).then((textObj) => {
+      setContent(textObj.content);
+    });
   }, []); // TODO: make input box invisible
 
   const wordCount = content.split(/\s+/).filter(Boolean).length;
@@ -42,7 +45,12 @@ const Prompt = () => {
       </button>
       <h1 className="Prompt-promptText">{page.prompt}</h1>
       <PromptText content={content} setContent={setContent} />
-      <Progress value={wordCount} max={200} className="Prompt-progress" barClassName="Prompt-progressBar" />
+      <Progress
+        value={wordCount}
+        max={200}
+        className="Prompt-progress"
+        barClassName="Prompt-progressBar"
+      />
       <button className="Prompt-revealButton" onClick={handleClick(`/${pageID}/text`)}>
         Show text
       </button>
